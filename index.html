@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harvest Rush</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="game-title"> 🌾 🧑‍🌾 HARVEST RUSH 🧑‍🌾 🌾</h1>
+
+  <!-- HUD with emoji + labels -->
+  <div id="hud" class="hud">
+    <div class="chip chip-score">
+      <span class="chip-emoji">🏅</span>
+      <span class="chip-title">My Score</span>
+      <span id="score" class="chip-value">0</span>
+    </div>
+
+    <div class="chip chip-time">
+      <span class="chip-emoji">⏱</span>
+      <span class="chip-title">Time</span>
+      <span class="chip-value"><span id="time">0</span> s</span>
+    </div>
+
+    <div class="chip chip-level">
+      <span class="chip-emoji">🗺️</span>
+      <span class="chip-title">Level</span>
+      <span class="chip-value" id="level">1</span>
+    </div>
+
+    <div class="chip chip-goal">
+      <span class="chip-emoji">🎯</span>
+      <span class="chip-title">Target</span>
+      <span class="chip-value" id="goal">25</span>
+    </div>
+
+    <!-- AI chip: value is JUST the number (no “AI: ” prefix) -->
+    <div class="chip chip-ai">
+      <span class="chip-emoji">🤖</span>
+      <span class="chip-title">AI</span>
+      <span class="chip-value" id="ai-score">0</span>
+    </div>
+  </div>
+
+  <main class="game-shell">
+    <!-- Time track perfectly aligned with the canvas width -->
+    <div class="timebar-wrap" aria-label="Round time">
+      <div class="timebar-labels">
+        <span class="muted">Start</span>
+        <span id="timeSec" class="time-remaining">45s</span>
+        <span class="muted">End</span>
+      </div>
+      <div class="timebar">
+        <div id="timeBar" class="timebar-fill"></div>
+      </div>
+    </div>
+
+    <!-- Overlay (level messages, win/lose) -->
+    <div id="overlay" class="hidden">
+      <div id="overlayContent" class="overlay-card">Level • Press Start</div>
+    </div>
+
+    <!-- Game canvas -->
+    <div class="canvas-wrap">
+      <canvas id="game" width="900" height="540"></canvas>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="btnStart" class="btn btn-lg btn-primary">▶ Start</button>
+      <button id="btnReset" class="btn btn-lg btn-warn">↺ Reset</button>
+      <span id="status" class="status">Playing...</span>
+      <span id="boost" class="boost-chip" style="display:none">⚡ 0s</span>
+    </div>
+  </main>
+
+  <!-- Controls & Scoring (redesigned) -->
+  <section class="instructions" id="howto">
+    <h3>Controls & Scoring</h3>
+
+    <div class="controls-grid">
+      <div class="keys">
+        <div class="arrow-row">
+          <span class="kbd kbd-lg">⬆️</span>
+        </div>
+        <div class="arrow-row">
+          <span class="kbd kbd-lg">⬅️</span>
+          <span class="kbd kbd-lg">⬇️</span>
+          <span class="kbd kbd-lg">➡️</span>
+        </div>
+        <div class="or">or</div>
+        <div class="wasd">
+          <span class="kbd">W</span>
+          <span class="kbd">A</span>
+          <span class="kbd">S</span>
+          <span class="kbd">D</span>
+        </div>
+      </div>
+
+      <ul class="rules">
+        <li><b>Goal:</b> reach the target score before time ends.</li>
+        <li><b>Crops (points):</b>
+          <ul class="crop-points">
+            <li>🌽 <b>Corn</b> = <b>+2</b></li>
+            <li>🍓 <b>Strawberry</b> = <b>+4</b></li>
+            <li>🫐 <b>Blueberry</b> = <b>+6</b></li>
+          </ul>
+        </li>
+        <li>⚡ <b>Speed Boost</b>: temporary faster movement (timer near buttons).</li>
+        <li>👻 <b>Scarecrows</b>: static obstacles.</li>
+        <li>🐦 <b>Crows</b>: each hit = <b>−5 points</b> and <b>−3s</b>.</li>
+        <li><b>Pause/Resume:</b> press <span class="kbd">P</span>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "levels": [
+    {
+      "goal": 25,
+      "time": 45,
+      "cropSpawnRate": 0.9,
+      "crowEvery": 6,
+      "farmerSpeedMultiplier": 1.0,
+      "crowsPerSpawn": 1
+    },
+    {
+      "goal": 45,
+      "time": 40,
+      "cropSpawnRate": 0.7,
+      "crowEvery": 5,
+      "farmerSpeedMultiplier": 1.05,
+      "crowsPerSpawn": 2
+    },
+    {
+      "goal": 60,
+      "time": 40,
+      "cropSpawnRate": 0.5,
+      "crowEvery": 3,
+      "farmerSpeedMultiplier": 1.1,
+      "crowsPerSpawn": 3
+    }
+  ],
+  "crops": [
+    {
+      "name": "corn",
+      "color": "#ffd95b",
+      "points": 2,
+      "emoji": "\ud83c\udf3d"
+    },
+    {
+      "name": "strawberry",
+      "color": "#e63946",
+      "points": 4,
+      "emoji": "\ud83c\udf53"
+    },
+    {
+      "name": "blueberry",
+      "color": "#4361ee",
+      "points": 6,
+      "emoji": "\ud83e\uded0"
+    }
+  ]
+}
